@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date and Time Display</title>
+</head>
+<body>
+    <h1>Date and Time Display</h1>
+    <form>
+        <label for="datetime">Current Date and Time:</label>
+        <input type="text" id="datetime" readonly>
+    </form>
+
+    <script>
+        // Function to update the date and time input field
+        function updateDateTime() {
+            const dateTimeInput = document.getElementById('datetime');
+            const currentDateTime = new Date();
+            const formattedDateTime = currentDateTime.toLocaleString();
+            dateTimeInput.value = formattedDateTime;
+        }
+
+        // Call the updateDateTime function to set the initial value
+        updateDateTime();
+
+        // Set an interval to update the date and time every second
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Animation</title>
+    <style>
+        /* Train animation */
+        @keyframes moveTrain {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+
+        .train {
+            width: 400px;
+            height: 200px;
+            background-color: #ff6600;
+            position: relative;
+            animation: moveTrain 2s linear infinite paused;
+        }
+
+        /* Button styles */
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="train"></div>
+    <div class="btn-container">
+        <button class="btn" id="startButton">Start</button>
+        <button class="btn" id="stopButton">Stop</button>
+    </div>
+
+    <script>
+        const train = document.querySelector('.train');
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        
+        let isAnimating = false;
+        
+        startButton.addEventListener('click', () => {
+            if (!isAnimating) {
+                train.style.animationPlayState = 'running';
+                isAnimating = true;
+            }
+        });
+        
+        stopButton.addEventListener('click', () => {
+            if (isAnimating) {
+                train.style.animationPlayState = 'paused';
+                isAnimating = false;
+            }
+        });
+    </script>
+</body>
+</html>

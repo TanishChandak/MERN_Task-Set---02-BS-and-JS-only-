@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Javascript Task 3
+    </title>
+</head>
+<body>
+    <fieldset>
+        <h1>Simple Calculator</h1>
+    <form id="calculatorForm">
+        <label for="num1">Enter the first number:</label>
+        <input type="number" id="num1" required><br><br>
+
+        <label for="num2">Enter the second number:</label>
+        <input type="number" id="num2" required><br><br>
+
+        <input type="submit" value="Multiply">
+        <input type="button" value="Divide" onclick="calculateDivision()">
+    </form>
+
+    <p id="result"></p>
+
+    </fieldset>
+    <script>
+        // Function to calculate multiplication
+        document.getElementById('calculatorForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const multiplicationResult = num1 * num2;
+            document.getElementById('result').textContent = `The Result Is: ${multiplicationResult}`;
+        });
+
+        // Function to calculate division
+        function calculateDivision() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+
+            if (num2 !== 0) {
+                const divisionResult = num1 / num2;
+                document.getElementById('result').textContent = `The Result Is: ${divisionResult}`;
+            } else {
+                document.getElementById('result').textContent = "Division by zero is not allowed.";
+            }
+        }
+    </script>
+</body>
+</html>
